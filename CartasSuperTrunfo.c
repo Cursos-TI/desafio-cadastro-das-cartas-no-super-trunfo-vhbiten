@@ -10,6 +10,7 @@ int main() {
   int card1_pontosturisticos, card2_pontosturisticos;
   float card1_densidade, card2_densidade;
   float card1_pibpercapita, card2_pibpercapita;
+  float card1_superpoder, card2_superpoder;
   
 
   //cadastro das cartas
@@ -65,9 +66,13 @@ int main() {
   card2_pibpercapita = (float) card2_pib / card2_populacao;
   card2_densidade = (float) card2_populacao / card2_area;
   
+  //calculo do superpoder das cartas
+
+  card1_superpoder = (float) (card1_populacao + card1_area + card1_pib + card1_pontosturisticos + 1/card1_densidade + card1_pibpercapita);
+  card2_superpoder = (float) (card2_populacao + card2_area + card2_pib + card2_pontosturisticos + 1/card2_densidade + card2_pibpercapita);
 
   //listagem das cartas cadastradas
-  printf("CARTA 1:\n");
+  printf("------- CARTA 1 ---------\n");
   printf("Estado: %s\n", card1_estado);
   printf("Código: %s\n", card1_codigo);
   printf("Nome da Cidade: %s\n", card1_cidade);
@@ -77,8 +82,9 @@ int main() {
   printf("Números de Pontos Turísticos: %d\n", card1_pontosturisticos);
   printf("Densidade populacional: %f hab/km²\n", card1_densidade);
   printf("PIB per capita: %f reais\n", card1_pibpercapita);
+
   
-  printf("CARTA 2:\n");
+  printf("------- CARTA 2 --------\n");
   printf("Estado: %s\n", card2_estado);
   printf("Código: %s\n", card2_codigo);
   printf("Nome da Cidade: %s\n", card2_cidade);
@@ -88,6 +94,16 @@ int main() {
   printf("Números de Pontos Turísticos: %d\n", card2_pontosturisticos);
   printf("Densidade populacional: %f hab/km²\n", card2_densidade);
   printf("PIB per capita: %f reais\n", card2_pibpercapita);
+
+  //comparação entre as cartas
+
+  printf("------- COMPARAÇÃO ---------\n");
+  printf ("População: %d\n", card1_populacao > card2_populacao);
+  printf ("Área: %d\n", card1_area > card2_area);
+  printf ("Pontos Turísticos: %d\n", card1_pontosturisticos > card2_pontosturisticos);
+  printf ("Densidade populacional: %d\n", card1_densidade < card2_densidade);
+  printf ("PIB per capita: %d\n", card1_pibpercapita > card2_pibpercapita);
+  printf ("Super Poder: %d\n", card1_superpoder > card2_superpoder);
 
   return 0;
 }
